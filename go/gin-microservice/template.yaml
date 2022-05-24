@@ -47,8 +47,8 @@ spec:
           type: string
           description: The AsyncAPI spec to be used to generate the API stubs.
           ui:widget: "textarea"
-            ui:options: "textarea"
-              rows: 10
+          ui:options: "textarea"
+            rows: 10
         owner:
           title: Owner
           type: string
