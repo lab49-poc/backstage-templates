@@ -21,15 +21,15 @@ spec:
   lifecycle: experimental
   owner: ${{values.owner | dump}}
   providesApis:
-    - ${{values.component_id}}-RestAPI
-    - ${{values.component_id}}-AsyncAPI
+    - ${{values.component_id}}-rest
+    - ${{values.component_id}}-async
 #  consumesApis:
 #    - petstore
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: ${{ values.component_id }}-RestAPI
+  name: ${{ values.component_id }}-rest
   description: ${{ values.description }}
 spec:
   type: openapi
@@ -41,7 +41,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: ${{values.component_id}}-AsyncAPI
+  name: ${{ values.component_id }}-async
   description: ${{ values.description }}
 spec:
   type: asyncapi
