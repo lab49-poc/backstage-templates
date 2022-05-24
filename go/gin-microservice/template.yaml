@@ -80,6 +80,8 @@ spec:
         values:
           component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
+          open_api_spec: ${{ parameters.open_api_spec }}
+          async_api_spec: ${{ parameters.async_api_spec }}
           artifact_id: ${{ parameters.component_id }}
           go_module_name: ${{ parameters.go_module_name }}
           owner: ${{ parameters.owner }}
