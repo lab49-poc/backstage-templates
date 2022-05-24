@@ -9,3 +9,15 @@ spec:
   owner: ${{values.destination.owner}}
   definition:
     $text: https://github.com/${{values.destination.owner + "/" + values.destination.repo}}/blob/master/api/openapi.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ${{values.component_id}}-AsyncAPI
+  description: ${{ values.description }}
+spec:
+  type: asyncapi
+  lifecycle: experimental
+  owner: ${{values.destination.owner}}
+  definition:
+    $text: https://github.com/${{values.destination.owner + "/" + values.destination.repo}}/blob/master/api/asyncapi.yaml
