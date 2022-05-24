@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{values.component_id | dump}}
+  {%- if values.description %}
+  description: ${{values.description | dump}}
+  {%- endif %}
+  annotations:
+    github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - go
+    - gin
+    - kubernetes
+  links:
+    - url: https://admin.example-org.com
+      title: Admin Dashboard
+      icon: dashboard
+spec:
+  type: service
+  lifecycle: experimental
+  owner: ${{values.owner | dump}}
+  providesApis:
+    - ${{values.component_id}}
+#  consumesApis:
+#    - petstore
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ${{ values.component_id }}
+  description: ${{ values.description }}
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: ${{values.destination.owner}}
+  definition:
+    $text: https://github.com/${{values.destination.owner + "/" + values.destination.repo}}/blob/master/api-docs.yaml
