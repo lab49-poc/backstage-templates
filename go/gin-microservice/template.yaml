@@ -31,10 +31,15 @@ spec:
           type: string
           description: The Go module to be created eg (github.com/lab49-poc)
           value: github.com/lab49-poc
+        open_api_spec:
+          title: OpenAPI Spec
+          type: string
+          description: The OpenAPI spec to be used to generate the Rest API stubs.
         description:
           title: Description
           type: string
           description: Help others understand what this application is for.
+          ui:widget: "textarea"
         owner:
           title: Owner
           type: string
