@@ -26,6 +26,10 @@ spec:
           type: string
           description: Unique name of the application
           ui:field: EntityNamePicker
+        description:
+          title: Description
+          type: string
+          description: Help others understand what this application is for.
         go_module_name:
           title: Go Module Name
           type: string
@@ -34,12 +38,17 @@ spec:
         open_api_spec:
           title: OpenAPI Spec
           type: string
-          description: The OpenAPI spec to be used to generate the Rest API stubs.
-        description:
-          title: Description
-          type: string
-          description: Help others understand what this application is for.
+          description: The OpenAPI spec to be used to generate the API stubs.
           ui:widget: "textarea"
+          ui:options: "textarea"
+            rows: 10
+        async_api_spec:
+          title: AsyncAPI Spec
+          type: string
+          description: The AsyncAPI spec to be used to generate the API stubs.
+          ui:widget: "textarea"
+            ui:options: "textarea"
+              rows: 10
         owner:
           title: Owner
           type: string
