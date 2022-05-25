@@ -6,6 +6,8 @@ repo_url: https://github.com/${{ values.destination.owner }}/${{ values.componen
 
 nav:
   - Introduction: index.md
+  - Build & Run: build.md
+  - Deploy: deployment.md
 
 plugins:
   - techdocs-core
