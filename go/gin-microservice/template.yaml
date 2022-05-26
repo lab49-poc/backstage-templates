@@ -57,6 +57,982 @@ spec:
           ui:options:
             allowedKinds:
               - Group
+
+
+    - title: Root Schema
+      required:
+        - ipcMode
+        - executionRoleArn
+        - containerDefinitions
+        - placementConstraints
+        - memory
+        - taskRoleArn
+        - compatibilities
+        - taskDefinitionArn
+        - family
+        - requiresAttributes
+        - pidMode
+        - requiresCompatibilities
+        - networkMode
+        - runtimePlatform
+        - cpu
+        - revision
+        - status
+        - inferenceAccelerators
+        - proxyConfiguration
+        - volumes
+      properties:
+        ipcMode:
+          type: 'null'
+          default:
+          title: The ipcMode Schema
+          examples:
+            -
+        executionRoleArn:
+          type: string
+          default: ''
+          title: The executionRoleArn Schema
+          examples:
+            - arn:aws:iam::498516933747:role/ecsTaskExecutionRole
+        containerDefinitions:
+          type: array
+          default: [ ]
+          title: The containerDefinitions Schema
+          items:
+            type: object
+            default: { }
+            title: A Schema
+            required:
+              - dnsSearchDomains
+              - environmentFiles
+              - logConfiguration
+              - entryPoint
+              - portMappings
+              - command
+              - linuxParameters
+              - cpu
+              - environment
+              - resourceRequirements
+              - ulimits
+              - dnsServers
+              - mountPoints
+              - workingDirectory
+              - secrets
+              - dockerSecurityOptions
+              - memory
+              - memoryReservation
+              - volumesFrom
+              - stopTimeout
+              - image
+              - startTimeout
+              - firelensConfiguration
+              - dependsOn
+              - disableNetworking
+              - interactive
+              - healthCheck
+              - essential
+              - links
+              - hostname
+              - extraHosts
+              - pseudoTerminal
+              - user
+              - readonlyRootFilesystem
+              - dockerLabels
+              - systemControls
+              - privileged
+              - name
+            properties:
+              dnsSearchDomains:
+                type: 'null'
+                default:
+                title: The dnsSearchDomains Schema
+                examples:
+                  -
+              environmentFiles:
+                type: 'null'
+                default:
+                title: The environmentFiles Schema
+                examples:
+                  -
+              logConfiguration:
+                type: object
+                default: { }
+                title: The logConfiguration Schema
+                required:
+                  - logDriver
+                  - secretOptions
+                  - options
+                properties:
+                  logDriver:
+                    type: string
+                    default: ''
+                    title: The logDriver Schema
+                    examples:
+                      - awslogs
+                  secretOptions:
+                    type: 'null'
+                    default:
+                    title: The secretOptions Schema
+                    examples:
+                      -
+                  options:
+                    type: object
+                    default: { }
+                    title: The options Schema
+                    required:
+                      - awslogs-group
+                      - awslogs-region
+                      - awslogs-stream-prefix
+                    properties:
+                      awslogs-group:
+                        type: string
+                        default: ''
+                        title: The awslogs-group Schema
+                        examples:
+                          - "/ecs/lab49-dev-portal-task"
+                      awslogs-region:
+                        type: string
+                        default: ''
+                        title: The awslogs-region Schema
+                        examples:
+                          - ap-southeast-2
+                      awslogs-stream-prefix:
+                        type: string
+                        default: ''
+                        title: The awslogs-stream-prefix Schema
+                        examples:
+                          - ecs
+                    examples:
+                      - awslogs-group: "/ecs/lab49-dev-portal-task"
+                        awslogs-region: ap-southeast-2
+                        awslogs-stream-prefix: ecs
+                examples:
+                  - logDriver: awslogs
+                    secretOptions:
+                    options:
+                      awslogs-group: "/ecs/lab49-dev-portal-task"
+                      awslogs-region: ap-southeast-2
+                      awslogs-stream-prefix: ecs
+              entryPoint:
+                type: 'null'
+                default:
+                title: The entryPoint Schema
+                examples:
+                  -
+              portMappings:
+                type: array
+                default: [ ]
+                title: The portMappings Schema
+                items:
+                  type: object
+                  default: { }
+                  title: A Schema
+                  required:
+                    - hostPort
+                    - protocol
+                    - containerPort
+                  properties:
+                    hostPort:
+                      type: integer
+                      default: 0
+                      title: The hostPort Schema
+                      examples:
+                        - 7007
+                    protocol:
+                      type: string
+                      default: ''
+                      title: The protocol Schema
+                      examples:
+                        - tcp
+                    containerPort:
+                      type: integer
+                      default: 0
+                      title: The containerPort Schema
+                      examples:
+                        - 7007
+                  examples:
+                    - hostPort: 7007
+                      protocol: tcp
+                      containerPort: 7007
+                examples:
+                  - - hostPort: 7007
+                      protocol: tcp
+                      containerPort: 7007
+              command:
+                type: 'null'
+                default:
+                title: The command Schema
+                examples:
+                  -
+              linuxParameters:
+                type: 'null'
+                default:
+                title: The linuxParameters Schema
+                examples:
+                  -
+              cpu:
+                type: integer
+                default: 0
+                title: The cpu Schema
+                examples:
+                  - 0
+              environment:
+                type: array
+                default: [ ]
+                title: The environment Schema
+                items:
+                  type: object
+                  title: A Schema
+                  required:
+                    - name
+                    - value
+                  properties:
+                    name:
+                      type: string
+                      title: The name Schema
+                      examples:
+                        - GITHUB_APP_CLIENT_ID
+                        - GITHUB_APP_ID
+                        - GITHUB_APP_WEBHOOK_URL
+                        - GITHUB_OAUTH_CLIENT_ID
+                    value:
+                      type: string
+                      title: The value Schema
+                      examples:
+                        - Iv1.61e1ee149fdc2745
+                        - '192350'
+                        - https://smee.io/gy1k3fTI2xDojSMbO02e
+                        - 66edcb0d730b6f81ef04
+                  examples:
+                    - name: GITHUB_APP_CLIENT_ID
+                      value: Iv1.61e1ee149fdc2745
+                    - name: GITHUB_APP_ID
+                      value: '192350'
+                    - name: GITHUB_APP_WEBHOOK_URL
+                      value: https://smee.io/gy1k3fTI2xDojSMbO02e
+                    - name: GITHUB_OAUTH_CLIENT_ID
+                      value: 66edcb0d730b6f81ef04
+                examples:
+                  - - name: GITHUB_APP_CLIENT_ID
+                      value: Iv1.61e1ee149fdc2745
+                    - name: GITHUB_APP_ID
+                      value: '192350'
+                    - name: GITHUB_APP_WEBHOOK_URL
+                      value: https://smee.io/gy1k3fTI2xDojSMbO02e
+                    - name: GITHUB_OAUTH_CLIENT_ID
+                      value: 66edcb0d730b6f81ef04
+              resourceRequirements:
+                type: 'null'
+                default:
+                title: The resourceRequirements Schema
+                examples:
+                  -
+              ulimits:
+                type: 'null'
+                default:
+                title: The ulimits Schema
+                examples:
+                  -
+              dnsServers:
+                type: 'null'
+                default:
+                title: The dnsServers Schema
+                examples:
+                  -
+              mountPoints:
+                type: array
+                default: [ ]
+                title: The mountPoints Schema
+                items: { }
+                examples:
+                  - [ ]
+              workingDirectory:
+                type: 'null'
+                default:
+                title: The workingDirectory Schema
+                examples:
+                  -
+              secrets:
+                type: array
+                default: [ ]
+                title: The secrets Schema
+                items:
+                  type: object
+                  title: A Schema
+                  required:
+                    - valueFrom
+                    - name
+                  properties:
+                    valueFrom:
+                      type: string
+                      title: The valueFrom Schema
+                      examples:
+                        - arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_CLIENT_SECRET
+                        - arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_PRIVATE_KEY
+                        - arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_WEBHOOK_SECRET
+                        - arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_OAUTH_CLIENT_SECRET
+                    name:
+                      type: string
+                      title: The name Schema
+                      examples:
+                        - GITHUB_APP_CLIENT_SECRET
+                        - GITHUB_APP_PRIVATE_KEY
+                        - GITHUB_APP_WEBHOOK_SECRET
+                        - GITHUB_OAUTH_CLIENT_SECRET
+                  examples:
+                    - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_CLIENT_SECRET
+                      name: GITHUB_APP_CLIENT_SECRET
+                    - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_PRIVATE_KEY
+                      name: GITHUB_APP_PRIVATE_KEY
+                    - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_WEBHOOK_SECRET
+                      name: GITHUB_APP_WEBHOOK_SECRET
+                    - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_OAUTH_CLIENT_SECRET
+                      name: GITHUB_OAUTH_CLIENT_SECRET
+                examples:
+                  - - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_CLIENT_SECRET
+                      name: GITHUB_APP_CLIENT_SECRET
+                    - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_PRIVATE_KEY
+                      name: GITHUB_APP_PRIVATE_KEY
+                    - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_WEBHOOK_SECRET
+                      name: GITHUB_APP_WEBHOOK_SECRET
+                    - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_OAUTH_CLIENT_SECRET
+                      name: GITHUB_OAUTH_CLIENT_SECRET
+              dockerSecurityOptions:
+                type: 'null'
+                default:
+                title: The dockerSecurityOptions Schema
+                examples:
+                  -
+              memory:
+                type: 'null'
+                default:
+                title: The memory Schema
+                examples:
+                  -
+              memoryReservation:
+                type: 'null'
+                default:
+                title: The memoryReservation Schema
+                examples:
+                  -
+              volumesFrom:
+                type: array
+                default: [ ]
+                title: The volumesFrom Schema
+                items: { }
+                examples:
+                  - [ ]
+              stopTimeout:
+                type: 'null'
+                default:
+                title: The stopTimeout Schema
+                examples:
+                  -
+              image:
+                type: string
+                default: ''
+                title: The image Schema
+                examples:
+                  - 498516933747.dkr.ecr.ap-southeast-2.amazonaws.com/backstage-dev-portal:32fc089605af65c44ad3750e87066b7717bd89b8
+              startTimeout:
+                type: 'null'
+                default:
+                title: The startTimeout Schema
+                examples:
+                  -
+              firelensConfiguration:
+                type: 'null'
+                default:
+                title: The firelensConfiguration Schema
+                examples:
+                  -
+              dependsOn:
+                type: 'null'
+                default:
+                title: The dependsOn Schema
+                examples:
+                  -
+              disableNetworking:
+                type: 'null'
+                default:
+                title: The disableNetworking Schema
+                examples:
+                  -
+              interactive:
+                type: 'null'
+                default:
+                title: The interactive Schema
+                examples:
+                  -
+              healthCheck:
+                type: 'null'
+                default:
+                title: The healthCheck Schema
+                examples:
+                  -
+              essential:
+                type: boolean
+                default: false
+                title: The essential Schema
+                examples:
+                  - true
+              links:
+                type: 'null'
+                default:
+                title: The links Schema
+                examples:
+                  -
+              hostname:
+                type: 'null'
+                default:
+                title: The hostname Schema
+                examples:
+                  -
+              extraHosts:
+                type: 'null'
+                default:
+                title: The extraHosts Schema
+                examples:
+                  -
+              pseudoTerminal:
+                type: 'null'
+                default:
+                title: The pseudoTerminal Schema
+                examples:
+                  -
+              user:
+                type: 'null'
+                default:
+                title: The user Schema
+                examples:
+                  -
+              readonlyRootFilesystem:
+                type: 'null'
+                default:
+                title: The readonlyRootFilesystem Schema
+                examples:
+                  -
+              dockerLabels:
+                type: 'null'
+                default:
+                title: The dockerLabels Schema
+                examples:
+                  -
+              systemControls:
+                type: 'null'
+                default:
+                title: The systemControls Schema
+                examples:
+                  -
+              privileged:
+                type: 'null'
+                default:
+                title: The privileged Schema
+                examples:
+                  -
+              name:
+                type: string
+                default: ''
+                title: The name Schema
+                examples:
+                  - lab49-dev-portal
+            examples:
+              - dnsSearchDomains:
+                environmentFiles:
+                logConfiguration:
+                  logDriver: awslogs
+                  secretOptions:
+                  options:
+                    awslogs-group: "/ecs/lab49-dev-portal-task"
+                    awslogs-region: ap-southeast-2
+                    awslogs-stream-prefix: ecs
+                entryPoint:
+                portMappings:
+                  - hostPort: 7007
+                    protocol: tcp
+                    containerPort: 7007
+                command:
+                linuxParameters:
+                cpu: 0
+                environment:
+                  - name: GITHUB_APP_CLIENT_ID
+                    value: Iv1.61e1ee149fdc2745
+                  - name: GITHUB_APP_ID
+                    value: '192350'
+                  - name: GITHUB_APP_WEBHOOK_URL
+                    value: https://smee.io/gy1k3fTI2xDojSMbO02e
+                  - name: GITHUB_OAUTH_CLIENT_ID
+                    value: 66edcb0d730b6f81ef04
+                resourceRequirements:
+                ulimits:
+                dnsServers:
+                mountPoints: [ ]
+                workingDirectory:
+                secrets:
+                  - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_CLIENT_SECRET
+                    name: GITHUB_APP_CLIENT_SECRET
+                  - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_PRIVATE_KEY
+                    name: GITHUB_APP_PRIVATE_KEY
+                  - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_WEBHOOK_SECRET
+                    name: GITHUB_APP_WEBHOOK_SECRET
+                  - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_OAUTH_CLIENT_SECRET
+                    name: GITHUB_OAUTH_CLIENT_SECRET
+                dockerSecurityOptions:
+                memory:
+                memoryReservation:
+                volumesFrom: [ ]
+                stopTimeout:
+                image: 498516933747.dkr.ecr.ap-southeast-2.amazonaws.com/backstage-dev-portal:32fc089605af65c44ad3750e87066b7717bd89b8
+                startTimeout:
+                firelensConfiguration:
+                dependsOn:
+                disableNetworking:
+                interactive:
+                healthCheck:
+                essential: true
+                links:
+                hostname:
+                extraHosts:
+                pseudoTerminal:
+                user:
+                readonlyRootFilesystem:
+                dockerLabels:
+                systemControls:
+                privileged:
+                name: lab49-dev-portal
+          examples:
+            - - dnsSearchDomains:
+                environmentFiles:
+                logConfiguration:
+                  logDriver: awslogs
+                  secretOptions:
+                  options:
+                    awslogs-group: "/ecs/lab49-dev-portal-task"
+                    awslogs-region: ap-southeast-2
+                    awslogs-stream-prefix: ecs
+                entryPoint:
+                portMappings:
+                  - hostPort: 7007
+                    protocol: tcp
+                    containerPort: 7007
+                command:
+                linuxParameters:
+                cpu: 0
+                environment:
+                  - name: GITHUB_APP_CLIENT_ID
+                    value: Iv1.61e1ee149fdc2745
+                  - name: GITHUB_APP_ID
+                    value: '192350'
+                  - name: GITHUB_APP_WEBHOOK_URL
+                    value: https://smee.io/gy1k3fTI2xDojSMbO02e
+                  - name: GITHUB_OAUTH_CLIENT_ID
+                    value: 66edcb0d730b6f81ef04
+                resourceRequirements:
+                ulimits:
+                dnsServers:
+                mountPoints: [ ]
+                workingDirectory:
+                secrets:
+                  - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_CLIENT_SECRET
+                    name: GITHUB_APP_CLIENT_SECRET
+                  - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_PRIVATE_KEY
+                    name: GITHUB_APP_PRIVATE_KEY
+                  - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_WEBHOOK_SECRET
+                    name: GITHUB_APP_WEBHOOK_SECRET
+                  - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_OAUTH_CLIENT_SECRET
+                    name: GITHUB_OAUTH_CLIENT_SECRET
+                dockerSecurityOptions:
+                memory:
+                memoryReservation:
+                volumesFrom: [ ]
+                stopTimeout:
+                image: 498516933747.dkr.ecr.ap-southeast-2.amazonaws.com/backstage-dev-portal:32fc089605af65c44ad3750e87066b7717bd89b8
+                startTimeout:
+                firelensConfiguration:
+                dependsOn:
+                disableNetworking:
+                interactive:
+                healthCheck:
+                essential: true
+                links:
+                hostname:
+                extraHosts:
+                pseudoTerminal:
+                user:
+                readonlyRootFilesystem:
+                dockerLabels:
+                systemControls:
+                privileged:
+                name: lab49-dev-portal
+        placementConstraints:
+          type: array
+          default: [ ]
+          title: The placementConstraints Schema
+          items: { }
+          examples:
+            - [ ]
+        memory:
+          type: string
+          default: ''
+          title: The memory Schema
+          examples:
+            - '1024'
+        taskRoleArn:
+          type: string
+          default: ''
+          title: The taskRoleArn Schema
+          examples:
+            - arn:aws:iam::498516933747:role/ecsTaskExecutionRole
+        compatibilities:
+          type: array
+          default: [ ]
+          title: The compatibilities Schema
+          items:
+            type: string
+            title: A Schema
+            examples:
+              - EC2
+              - FARGATE
+          examples:
+            - - EC2
+              - FARGATE
+        taskDefinitionArn:
+          type: string
+          default: ''
+          title: The taskDefinitionArn Schema
+          examples:
+            - arn:aws:ecs:ap-southeast-2:498516933747:task-definition/lab49-dev-portal-task:4
+        family:
+          type: string
+          default: ''
+          title: The family Schema
+          examples:
+            - lab49-dev-portal-task
+        requiresAttributes:
+          type: array
+          default: [ ]
+          title: The requiresAttributes Schema
+          items:
+            type: object
+            title: A Schema
+            required:
+              - targetId
+              - targetType
+              - value
+              - name
+            properties:
+              targetId:
+                type: 'null'
+                title: The targetId Schema
+                examples:
+                  -
+              targetType:
+                type: 'null'
+                title: The targetType Schema
+                examples:
+                  -
+              value:
+                type: 'null'
+                title: The value Schema
+                examples:
+                  -
+              name:
+                type: string
+                title: The name Schema
+                examples:
+                  - com.amazonaws.ecs.capability.logging-driver.awslogs
+                  - ecs.capability.execution-role-awslogs
+                  - com.amazonaws.ecs.capability.ecr-auth
+                  - com.amazonaws.ecs.capability.docker-remote-api.1.19
+                  - com.amazonaws.ecs.capability.task-iam-role
+                  - ecs.capability.execution-role-ecr-pull
+                  - ecs.capability.secrets.ssm.environment-variables
+                  - com.amazonaws.ecs.capability.docker-remote-api.1.18
+                  - ecs.capability.task-eni
+            examples:
+              - targetId:
+                targetType:
+                value:
+                name: com.amazonaws.ecs.capability.logging-driver.awslogs
+              - targetId:
+                targetType:
+                value:
+                name: ecs.capability.execution-role-awslogs
+              - targetId:
+                targetType:
+                value:
+                name: com.amazonaws.ecs.capability.ecr-auth
+              - targetId:
+                targetType:
+                value:
+                name: com.amazonaws.ecs.capability.docker-remote-api.1.19
+              - targetId:
+                targetType:
+                value:
+                name: com.amazonaws.ecs.capability.task-iam-role
+              - targetId:
+                targetType:
+                value:
+                name: ecs.capability.execution-role-ecr-pull
+              - targetId:
+                targetType:
+                value:
+                name: ecs.capability.secrets.ssm.environment-variables
+              - targetId:
+                targetType:
+                value:
+                name: com.amazonaws.ecs.capability.docker-remote-api.1.18
+              - targetId:
+                targetType:
+                value:
+                name: ecs.capability.task-eni
+          examples:
+            - - targetId:
+                targetType:
+                value:
+                name: com.amazonaws.ecs.capability.logging-driver.awslogs
+              - targetId:
+                targetType:
+                value:
+                name: ecs.capability.execution-role-awslogs
+              - targetId:
+                targetType:
+                value:
+                name: com.amazonaws.ecs.capability.ecr-auth
+              - targetId:
+                targetType:
+                value:
+                name: com.amazonaws.ecs.capability.docker-remote-api.1.19
+              - targetId:
+                targetType:
+                value:
+                name: com.amazonaws.ecs.capability.task-iam-role
+              - targetId:
+                targetType:
+                value:
+                name: ecs.capability.execution-role-ecr-pull
+              - targetId:
+                targetType:
+                value:
+                name: ecs.capability.secrets.ssm.environment-variables
+              - targetId:
+                targetType:
+                value:
+                name: com.amazonaws.ecs.capability.docker-remote-api.1.18
+              - targetId:
+                targetType:
+                value:
+                name: ecs.capability.task-eni
+        pidMode:
+          type: 'null'
+          default:
+          title: The pidMode Schema
+          examples:
+            -
+        requiresCompatibilities:
+          type: array
+          default: [ ]
+          title: The requiresCompatibilities Schema
+          items:
+            type: string
+            default: ''
+            title: A Schema
+            examples:
+              - FARGATE
+          examples:
+            - - FARGATE
+        networkMode:
+          type: string
+          default: ''
+          title: The networkMode Schema
+          examples:
+            - awsvpc
+        runtimePlatform:
+          type: object
+          default: { }
+          title: The runtimePlatform Schema
+          required:
+            - operatingSystemFamily
+            - cpuArchitecture
+          properties:
+            operatingSystemFamily:
+              type: string
+              default: ''
+              title: The operatingSystemFamily Schema
+              examples:
+                - LINUX
+            cpuArchitecture:
+              type: 'null'
+              default:
+              title: The cpuArchitecture Schema
+              examples:
+                -
+          examples:
+            - operatingSystemFamily: LINUX
+              cpuArchitecture:
+        cpu:
+          type: string
+          default: ''
+          title: The cpu Schema
+          examples:
+            - '512'
+        revision:
+          type: integer
+          default: 0
+          title: The revision Schema
+          examples:
+            - 4
+        status:
+          type: string
+          default: ''
+          title: The status Schema
+          examples:
+            - ACTIVE
+        inferenceAccelerators:
+          type: 'null'
+          default:
+          title: The inferenceAccelerators Schema
+          examples:
+            -
+        proxyConfiguration:
+          type: 'null'
+          default:
+          title: The proxyConfiguration Schema
+          examples:
+            -
+        volumes:
+          type: array
+          default: [ ]
+          title: The volumes Schema
+          items: { }
+          examples:
+            - [ ]
+      examples:
+        - ipcMode:
+          executionRoleArn: arn:aws:iam::498516933747:role/ecsTaskExecutionRole
+          containerDefinitions:
+            - dnsSearchDomains:
+              environmentFiles:
+              logConfiguration:
+                logDriver: awslogs
+                secretOptions:
+                options:
+                  awslogs-group: "/ecs/lab49-dev-portal-task"
+                  awslogs-region: ap-southeast-2
+                  awslogs-stream-prefix: ecs
+              entryPoint:
+              portMappings:
+                - hostPort: 7007
+                  protocol: tcp
+                  containerPort: 7007
+              command:
+              linuxParameters:
+              cpu: 0
+              environment:
+                - name: GITHUB_APP_CLIENT_ID
+                  value: Iv1.61e1ee149fdc2745
+                - name: GITHUB_APP_ID
+                  value: '192350'
+                - name: GITHUB_APP_WEBHOOK_URL
+                  value: https://smee.io/gy1k3fTI2xDojSMbO02e
+                - name: GITHUB_OAUTH_CLIENT_ID
+                  value: 66edcb0d730b6f81ef04
+              resourceRequirements:
+              ulimits:
+              dnsServers:
+              mountPoints: [ ]
+              workingDirectory:
+              secrets:
+                - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_CLIENT_SECRET
+                  name: GITHUB_APP_CLIENT_SECRET
+                - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_PRIVATE_KEY
+                  name: GITHUB_APP_PRIVATE_KEY
+                - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_APP_WEBHOOK_SECRET
+                  name: GITHUB_APP_WEBHOOK_SECRET
+                - valueFrom: arn:aws:ssm:ap-southeast-2:498516933747:parameter/backstage/GITHUB_OAUTH_CLIENT_SECRET
+                  name: GITHUB_OAUTH_CLIENT_SECRET
+              dockerSecurityOptions:
+              memory:
+              memoryReservation:
+              volumesFrom: [ ]
+              stopTimeout:
+              image: 498516933747.dkr.ecr.ap-southeast-2.amazonaws.com/backstage-dev-portal:32fc089605af65c44ad3750e87066b7717bd89b8
+              startTimeout:
+              firelensConfiguration:
+              dependsOn:
+              disableNetworking:
+              interactive:
+              healthCheck:
+              essential: true
+              links:
+              hostname:
+              extraHosts:
+              pseudoTerminal:
+              user:
+              readonlyRootFilesystem:
+              dockerLabels:
+              systemControls:
+              privileged:
+              name: lab49-dev-portal
+          placementConstraints: [ ]
+          memory: '1024'
+          taskRoleArn: arn:aws:iam::498516933747:role/ecsTaskExecutionRole
+          compatibilities:
+            - EC2
+            - FARGATE
+          taskDefinitionArn: arn:aws:ecs:ap-southeast-2:498516933747:task-definition/lab49-dev-portal-task:4
+          family: lab49-dev-portal-task
+          requiresAttributes:
+            - targetId:
+              targetType:
+              value:
+              name: com.amazonaws.ecs.capability.logging-driver.awslogs
+            - targetId:
+              targetType:
+              value:
+              name: ecs.capability.execution-role-awslogs
+            - targetId:
+              targetType:
+              value:
+              name: com.amazonaws.ecs.capability.ecr-auth
+            - targetId:
+              targetType:
+              value:
+              name: com.amazonaws.ecs.capability.docker-remote-api.1.19
+            - targetId:
+              targetType:
+              value:
+              name: com.amazonaws.ecs.capability.task-iam-role
+            - targetId:
+              targetType:
+              value:
+              name: ecs.capability.execution-role-ecr-pull
+            - targetId:
+              targetType:
+              value:
+              name: ecs.capability.secrets.ssm.environment-variables
+            - targetId:
+              targetType:
+              value:
+              name: com.amazonaws.ecs.capability.docker-remote-api.1.18
+            - targetId:
+              targetType:
+              value:
+              name: ecs.capability.task-eni
+          pidMode:
+          requiresCompatibilities:
+            - FARGATE
+          networkMode: awsvpc
+          runtimePlatform:
+            operatingSystemFamily: LINUX
+            cpuArchitecture:
+          cpu: '512'
+          revision: 4
+          status: ACTIVE
+          inferenceAccelerators:
+          proxyConfiguration:
+          volumes: [ ]
+
     - title: Configure Code Repository
       required:
         - repoUrl
